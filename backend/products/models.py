@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=255, db_index=True)
+    name = models.CharField(max_length=250, db_index=True)
 
-    slug = models.SlugField(max_length=255, unique=True)
+    slug = models.SlugField(max_length=250, unique=True)
 
     class Meta:
 
@@ -18,17 +18,21 @@ class Category(models.Model):
 
 class Product(models.Model):
 
-    title = models.CharField(max_length=255)
+    category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE, null=True)
 
-    brand = models.CharField(max_length=255, default='un-branded')
+    title = models.CharField(max_length=250)
+
+    brand = models.CharField(max_length=250, default='un-branded')
 
     desciption = models.TextField(blank=True)
 
     slug = models.SlugField(max_length=255)
 
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=8, decimal_places=4)
 
     image = models.ImageField(upload_to='images/')
+
+    countInStock = models.IntegerField(null=True, blank=True, default=0)
 
 
     class Meta:
