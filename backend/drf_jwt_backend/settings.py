@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'products',
     'cart',
+    'mathfilters',
     'cars.apps.CarsConfig'  # This app is for example use only
 ]
 
