@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'mathfilters',
+    'account',
     'cars.apps.CarsConfig'  # This app is for example use only
 ]
 

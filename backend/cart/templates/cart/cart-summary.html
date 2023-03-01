@@ -199,17 +199,20 @@
 
   // Update button
 
-$(document).on('click', '.delete-button', function (e) {
+  $(document).on('click', '.update-button', function (e) {
 
     e.preventDefault();
+
+    var theproductid = $(this).data('index');
 
     $.ajax({
 
       type: 'POST',
-      url: '{% url "cart-delete" %}',
+      url: '{% url "cart-update" %}',
       data: {
 
         product_id: $(this).data("index"),
+        product_quantity: $('select' + theproductid + 'option:selected').text(),
         csrfmiddlewaretoken: "{{csrf_token}}",
         action: 'post'
 
