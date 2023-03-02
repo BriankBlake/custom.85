@@ -57,73 +57,73 @@
           <div class="col">
 
             <div class="row p-3">
-
+              {{product.id}}
               <div class="col-12">
 
                 <label for="select">Qty</label>
 
                 &nbsp;
 
-                <select id="select{{prouct.id}}">
+                <select id="options">
 
                   <option selected>
-
+                   
                     {{item.qty}}
 
                   </option>
 
-                  <option value="">1</option>
+                  <option value="1">1</option>
 
-                  <option value="">2</option>
+                  <option value="2">2</option>
 
-                  <option value="">3</option>
+                  <option value="3">3</option>
 
-                  <option value="">4</option>
+                  <option value="4">4</option>
 
-                  <option value="">5</option>
+                  <option value="5">5</option>
 
-                  <option value="">6</option>
+                  <option value="6">6</option>
 
-                  <option value="">7</option>
+                  <option value="7">7</option>
 
-                  <option value="">8</option>
+                  <option value="8">8</option>
 
-                  <option value="">9</option>
+                  <option value="9">9</option>
 
-                  <option value="">10</option>
+                  <option value="10">10</option>
 
-                  <option value="">11</option>
+                  <option value="11">11</option>
 
-                  <option value="">12</option>
+                  <option value="12">12</option>
 
-                  <option value="">13</option>
+                  <option value="13">13</option>
 
-                  <option value="">14</option>
+                  <option value="14">14</option>
 
-                  <option value="">15</option>
+                  <option value="15">15</option>
 
-                  <option value="">16</option>
+                  <option value="16">16</option>
 
-                  <option value="">17</option>
+                  <option value="17">17</option>
 
-                  <option value="">18</option>
+                  <option value="18">18</option>
 
-                  <option value="">19</option>
+                  <option value="19">19</option>
 
-                  <option value="">20</option>
+                  <option value="20">20</option>
 
                 </select>
 
                 <br> <br>
 
-                <button type="button" data-index="{{product_id}}" class="btn btn-primary btn-sm update-button">
+                <button type="button" data-index={{product.id}} class="btn btn-primary btn-sm update-button">
                   Update
 
                 </button>
 
                 &nbsp;
 
-                <button type="button" data-index="{{product.id}}" class="btn btn-danger btn-sm delete-button">
+                <button type="button" data-index={{product.id}} class="btn btn-danger btn-sm delete-button">
                   Delete
 
                 </button>
@@ -199,11 +199,14 @@
 
   // Update button
 
-  $(document).on('click', '.update-button', function (e) {
-
+  $(document).on('click', '.update-button', function(e) {
+    
     e.preventDefault();
+    var e = document.getElementById("options")
+    var quantity = e.options[e.selectedIndex].value
 
     var theproductid = $(this).data('index');
+   
 
     $.ajax({
 
@@ -212,7 +215,7 @@
       data: {
 
         product_id: $(this).data("index"),
-        product_quantity: $('select' + theproductid + 'option:selected').text(),
+        product_quantity: quantity,
         csrfmiddlewaretoken: "{{csrf_token}}",
         action: 'post'
 
@@ -220,13 +223,13 @@
 
       success: function (json) {
 
-        // console.log(json)
+         console.log(json)
 
-        location.reload();
+        // location.reload();
 
-        document.getElementById('cart-qty').textContent = json.qty
+        document.getElementById("cart-qty").textContent = json.qty
 
-        document.getElementById('total').textContent = json.total
+        document.getElementById("total").textContent = json.total
 
       },
 
