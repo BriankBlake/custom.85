@@ -51,10 +51,7 @@ def register(request):
 
     context = {'form':form}
 
-
     return render(request, 'account/registration/register.html', context=context)
-
-
 
 
 def email_verification(request, uidb64, token):

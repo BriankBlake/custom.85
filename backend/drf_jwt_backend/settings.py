@@ -44,8 +44,12 @@ INSTALLED_APPS = [
     'cart',
     'mathfilters',
     'account',
+    'crispy_forms',
     'cars.apps.CarsConfig'  # This app is for example use only
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -163,6 +167,8 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=10),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
+
+
 
 try:
     from drf_jwt_backend.local_settings import *
