@@ -168,7 +168,17 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
 
+# Email configuration settings:
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = 'True'
+
+# Be sure to read the guide in the resources folder of this lecture (SETUP THE EMAIL BACKEND)
+
+EMAIL_HOST_USER = 'chitownslilb@gmail.com' # - Enter your GMAIL address # The host email that sends password reset emails
+EMAIL_HOST_PASSWORD = 'Hatemenow1' # - Enter your app password 
 
 try:
     from drf_jwt_backend.local_settings import *
