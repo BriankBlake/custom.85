@@ -1,35 +1,26 @@
-
-{% include "store/base.html" %}
+{% include "product/base.html" %}
 
 {% load static %}
 
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 
     <style>
 
-
         body{
 
-
-            background-color: gray;
+            background-color: blue;
 
         }
 
-
-
     </style>
-
-
-
 
     <body>
 
         <br>
 
-        <div class="container bg-white shadow-md p-5 form-layout">
+        <div class="container bg-blue shadow-md p-5 form-layout">
 
             <h3> Account deletion </h3>
 
@@ -37,14 +28,11 @@
 
             <p> Are you sure that you want to delete your account? </p>
 
-
             <br>
 
             <form method="POST" autocomplete="off">
 
                 {% csrf_token %}
-
-
                 
                 <button type="submit" class="btn btn-danger navbar-btn text-white"> &nbsp; Delete your account </button>
 
@@ -56,40 +44,8 @@
 
         </div>
 
-
-
     </body>
 
     <br> <br>
 
-
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

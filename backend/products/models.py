@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 
 class Category(models.Model):
@@ -40,33 +41,14 @@ class Product(models.Model):
 
     countInStock = models.IntegerField(null=True, blank=True, default=0)
 
-
     class Meta:
 
         verbose_name_plural = 'products'
 
     def __str__(self):
 
-        return self.title
-    
-
+        return self.title  
 
     def get_absolute_url(self):
 
         return reverse('product-info', args=[self.slug])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

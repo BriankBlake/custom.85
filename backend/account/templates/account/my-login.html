@@ -4,26 +4,21 @@
 
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 
 <style>
     body {
 
-
-        background-color: gray;
+        background-color: blue;
 
     }
 </style>
-
-
-
 
 <body>
 
     <br>
 
-    <div class="container bg-white shadow-md p-5 form-layout">
+    <div class="container bg-blue shadow-md p-5 form-layout">
 
         <h3> Login to your account </h3>
 
@@ -37,14 +32,11 @@
 
             {{form.username|as_crispy_field}}
 
-
             <br>
-
 
             {{form.password|as_crispy_field}}
 
             <br>
-
 
             <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"> <i class="fa fa-key"
                     aria-hidden="true"></i> &nbsp; Login </button>
@@ -57,28 +49,19 @@
 
                 <a href="{% url 'register' %}"> Don't have an account? </a>
 
-
                 <br> <br>
 
-                
+                <a href="{% url 'reset_password' %}"> Forgotten your password? </a>
 
 
             </div>
 
-
         </form>
 
-
-
-
-
     </div>
-
-
 
 </body>
 
 <br> <br>
-
 
 {% endblock %}

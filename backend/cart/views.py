@@ -30,8 +30,7 @@ def cart_add(request):
 
         response = JsonResponse({'qty': cart_quantity})
 
-        return response
-        
+        return response       
 
 def cart_delete(request):
 
@@ -49,9 +48,7 @@ def cart_delete(request):
 
         response = JsonResponse({'qty':cart_quantity, 'total':cart_total})
 
-        return response
-
-    
+        return response  
 
 def cart_update(request):
 
